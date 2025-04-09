@@ -16,7 +16,7 @@ function Movie() {
       if (data.Response === 'True') {
         setMovieData(data);
 
-        // Scroll to result
+        
         setTimeout(() => {
           const resultSection = document.getElementById('movie-result');
           if (resultSection) {
@@ -33,7 +33,7 @@ function Movie() {
 
   return (
     <div style={styles.wrapper}>
-      <h2 style={styles.heading}></h2>
+      <h2 style={styles.heading}>Movie Search</h2>
 
       <div style={{ marginBottom: '10px' }}>
         <input
@@ -72,7 +72,7 @@ const styles = {
     padding: '20px',
     borderRadius: '8px',
     maxWidth: '600px',
-    margin: '40px auto', // extra top spacing
+    margin: '40px auto', 
   },
   heading: {
     marginBottom: '10px',

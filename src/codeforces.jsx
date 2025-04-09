@@ -13,6 +13,14 @@ function CodeforcesUserInfo() {
       const data = await response.json();
       if (data.status === 'OK') {
         setUserData(data.result[0]);
+
+        setTimeout(() => {
+          const resultSection = document.getElementById('cf-result');
+          if (resultSection) {
+            resultSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+
       } else {
         setError('User not found or error in API');
       }
@@ -22,22 +30,25 @@ function CodeforcesUserInfo() {
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial' }}>
-      <h2>Codeforces User Info</h2>
-      <input
-        type="text"
-        placeholder="Enter Codeforces handle"
-        value={handle}
-        onChange={(e) => setHandle(e.target.value)}
-      />
-      <button onClick={fetchUserInfo} style={{ marginLeft: '10px' }}>
-        Get Info
-      </button>
+    <div style={styles.wrapper}>
+      <h2 style={styles.heading}>Codeforces User Info</h2>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <div style={styles.inputGroup}>
+        <input
+          type="text"
+          placeholder="Enter Codeforces handle"
+          value={handle}
+          onChange={(e) => setHandle(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && fetchUserInfo()}
+          style={styles.input}
+        />
+        <button onClick={fetchUserInfo} style={styles.button}>Search</button>
+      </div>
+
+      {error && <p style={styles.error}>{error}</p>}
 
       {userData && (
-        <div style={{ marginTop: '20px' }}>
+        <div id="cf-result" style={styles.result}>
           <p><strong>Handle:</strong> {userData.handle}</p>
           <p><strong>Rank:</strong> {userData.rank}</p>
           <p><strong>Rating:</strong> {userData.rating}</p>
@@ -48,5 +59,50 @@ function CodeforcesUserInfo() {
     </div>
   );
 }
+
+const styles = {
+  wrapper: {
+    backgroundColor: 'white',
+    color: 'black',
+    padding: '20px',
+    borderRadius: '10px',
+    maxWidth: '600px',
+    margin: '40px auto',
+    textAlign: 'center',
+  },
+  heading: {
+    fontSize: '24px',
+    marginBottom: '20px',
+  },
+  inputGroup: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '10px',
+    marginBottom: '15px',
+  },
+  input: {
+    padding: '8px',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
+    width: '250px',
+    backgroundColor: '#111',
+    color: '#fff',
+  },
+  button: {
+    padding: '8px 16px',
+    backgroundColor: 'red',
+    color: 'white',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+  },
+  error: {
+    color: 'red',
+  },
+  result: {
+    marginTop: '20px',
+    textAlign: 'left',
+  },
+};
 
 export default CodeforcesUserInfo;
