@@ -12,7 +12,7 @@ const Chalk = () => {
   return (
     <div style={styles.wrapper}>
       <div style={styles.terminal}>
-        <ChalkLine text="> Fetching user info from Codeforces..." color="#00FF00" />
+        <ChalkLine text="> Fetching..." color="#00FF00" />
         <ChalkLine text="> Connecting to API..." color="#00FFAA" />
         <ChalkLine text="> Loading ⏳" color="#FFFF00" />
         <ChalkLine text="> Please wait..." color="#FF8800" />

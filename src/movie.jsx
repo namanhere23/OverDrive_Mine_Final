@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
+import Chalk from './Chalk';
 
 function Movie() {
   const [movieName, setMovieName] = useState('');
   const [movieData, setMovieData] = useState(null);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 
   const fetchMovie = async () => {
     setError('');
     setMovieData(null);
+    setLoading(true);
     try {
       const res = await fetch(`https://www.omdbapi.com/?t=${movieName}&apikey=${API_KEY}`);
       const data = await res.json();
       if (data.Response === 'True') {
         setMovieData(data);
-
         
         setTimeout(() => {
           const resultSection = document.getElementById('movie-result');
@@ -28,6 +30,8 @@ function Movie() {
       }
     } catch (err) {
       setError('Error fetching movie data');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -48,6 +52,7 @@ function Movie() {
         <button onClick={fetchMovie} style={styles.button}>Search</button>
       </div>
 
+      {loading && <Chalk />}
       {error && <p style={styles.error}>{error}</p>}
 
       {movieData && (
