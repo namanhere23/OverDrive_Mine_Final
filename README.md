@@ -67,7 +67,3 @@ This app can be deployed on platforms like **Vercel**, **Netlify**, or **GitHub 
 - Modern folder structure
 - Easy to scale
 - Clean and readable codebase
-
-## 🙌 Contributing
-
-Feel free to fork this repo, create a branch, and submit a PR! Contributions are always welcome.
