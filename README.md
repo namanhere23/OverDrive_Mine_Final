@@ -1,12 +1,81 @@
-# React + Vite
+# 🚀 OneDrive (Vite + React Project)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive React application powered by **Vite** for blazing-fast performance and seamless development experience.
 
-Currently, two official plugins are available:
+## 📁 Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+OneDrive/
+├── public/             # Static assets
+├── src/                # Source code (components, pages, logic)
+├── .env                # Environment variables
+├── .gitignore          # Files to ignore in Git
+├── index.html          # Main HTML entry
+├── package.json        # Project metadata and scripts
+├── vite.config.js      # Vite configuration
+```
 
-## Expanding the ESLint configuration
+## 🧰 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ⚛️ **React** – UI library
+- ⚡ **Vite** – Fast build tool and dev server
+- 🎨 **CSS / Tailwind / Styled Components** (add if used)
+- 🧪 **ESLint** – Linting for cleaner code
+- 🔧 **Prettier** – Code formatting (optional)
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd OneDrive
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Start the Dev Server
+
+```bash
+npm run dev
+```
+
+### 4. Build for Production
+
+```bash
+npm run build
+```
+
+## 📦 Available Scripts
+
+- `npm run dev` – Start development server
+- `npm run build` – Create optimized production build
+- `npm run preview` – Preview production build locally
+- `npm run lint` – Run linter
+
+## 🌐 Deployment
+
+This app can be deployed on platforms like **Vercel**, **Netlify**, or **GitHub Pages**.
+
+## 💡 Features
+
+- Fast development with Hot Module Replacement (HMR)
+- Modern folder structure
+- Easy to scale
+- Clean and readable codebase
+
+## 🙌 Contributing
+
+Feel free to fork this repo, create a branch, and submit a PR! Contributions are always welcome.
+
+## 📃 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+> Made with ❤️ using React + Vite
