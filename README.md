@@ -71,11 +71,3 @@ This app can be deployed on platforms like **Vercel**, **Netlify**, or **GitHub 
 ## 🙌 Contributing
 
 Feel free to fork this repo, create a branch, and submit a PR! Contributions are always welcome.
-
-## 📃 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-> Made with ❤️ using React + Vite
