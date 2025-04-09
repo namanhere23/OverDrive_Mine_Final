@@ -19,9 +19,7 @@ OneDrive/
 
 - ⚛️ **React** – UI library
 - ⚡ **Vite** – Fast build tool and dev server
-- 🎨 **CSS / Tailwind / Styled Components** (add if used)
-- 🧪 **ESLint** – Linting for cleaner code
-- 🔧 **Prettier** – Code formatting (optional)
+- 🎨 **CSS / Tailwind / Styled Components**
 
 ## 🚀 Getting Started
 
@@ -55,7 +53,6 @@ npm run build
 - `npm run dev` – Start development server
 - `npm run build` – Create optimized production build
 - `npm run preview` – Preview production build locally
-- `npm run lint` – Run linter
 
 ## 🌐 Deployment
 
