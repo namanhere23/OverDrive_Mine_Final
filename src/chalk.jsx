@@ -1,10 +1,8 @@
-import React from 'react';
+import React from "react";
 
-const ChalkLine = ({ text, color = '#00FF00' }) => {
+const ChalkLine = ({ text, color = "#00FF00" }) => {
   return (
-    <p style={{ color, fontFamily: 'monospace', margin: '4px 0' }}>
-      {text}
-    </p>
+    <p style={{ color, fontFamily: "monospace", margin: "4px 0" }}>{text}</p>
   );
 };
 
@@ -23,19 +21,19 @@ const Chalk = () => {
 
 const styles = {
   wrapper: {
-    padding: '16px',
-    backgroundColor: '#1a1a1a',
-    borderRadius: '8px',
-    maxWidth: '600px',
-    margin: '0 auto',
-    marginTop: '20px',
+    padding: "16px",
+    backgroundColor: "#1a1a1a",
+    borderRadius: "8px",
+    maxWidth: "600px",
+    margin: "0 auto",
+    marginTop: "20px",
   },
   terminal: {
-    backgroundColor: '#000',
-    padding: '20px',
-    borderRadius: '8px',
-    fontSize: '14px',
-    boxShadow: '0 0 8px rgba(0,255,0,0.2)',
+    backgroundColor: "#000",
+    padding: "20px",
+    borderRadius: "8px",
+    fontSize: "14px",
+    boxShadow: "0 0 8px rgba(0,255,0,0.2)",
   },
 };
 
