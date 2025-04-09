@@ -1,39 +1,36 @@
 import React, { useState } from 'react';
+import Chalk from './Chalk';
 
 function CodeforcesUserInfo() {
   const [handle, setHandle] = useState('');
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const fetchUserInfo = async () => {
     setError('');
     setUserData(null);
+    setLoading(true);
     try {
       const response = await fetch(`https://codeforces.com/api/user.info?handles=${handle}`);
       const data = await response.json();
       if (data.status === 'OK') {
         setUserData(data.result[0]);
-
-        setTimeout(() => {
-          const resultSection = document.getElementById('cf-result');
-          if (resultSection) {
-            resultSection.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100);
-
       } else {
         setError('User not found or error in API');
       }
     } catch (err) {
       setError('Something went wrong!');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div style={styles.wrapper}>
-      <h2 style={styles.heading}>Codeforces User Info</h2>
+      <h2 style={styles.heading}>Codeforces Info</h2>
 
-      <div style={styles.inputGroup}>
+      <div style={{ marginBottom: '10px' }}>
         <input
           type="text"
           placeholder="Enter Codeforces handle"
@@ -42,13 +39,15 @@ function CodeforcesUserInfo() {
           onKeyDown={(e) => e.key === 'Enter' && fetchUserInfo()}
           style={styles.input}
         />
+
         <button onClick={fetchUserInfo} style={styles.button}>Search</button>
       </div>
 
+      {loading && <Chalk />}
       {error && <p style={styles.error}>{error}</p>}
 
       {userData && (
-        <div id="cf-result" style={styles.result}>
+        <div style={styles.result}>
           <p><strong>Handle:</strong> {userData.handle}</p>
           <p><strong>Rank:</strong> {userData.rank}</p>
           <p><strong>Rating:</strong> {userData.rating}</p>
@@ -65,31 +64,21 @@ const styles = {
     backgroundColor: 'white',
     color: 'black',
     padding: '20px',
-    borderRadius: '10px',
+    borderRadius: '8px',
     maxWidth: '600px',
     margin: '40px auto',
-    textAlign: 'center',
   },
   heading: {
-    fontSize: '24px',
-    marginBottom: '20px',
-  },
-  inputGroup: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '10px',
-    marginBottom: '15px',
+    marginBottom: '10px',
   },
   input: {
     padding: '8px',
-    borderRadius: '4px',
+    marginRight: '10px',
     border: '1px solid #ccc',
-    width: '250px',
-    backgroundColor: '#111',
-    color: '#fff',
+    borderRadius: '4px',
   },
   button: {
-    padding: '8px 16px',
+    padding: '8px 12px',
     backgroundColor: 'red',
     color: 'white',
     border: 'none',
@@ -98,10 +87,11 @@ const styles = {
   },
   error: {
     color: 'red',
+    marginTop: '10px',
   },
   result: {
     marginTop: '20px',
-    textAlign: 'left',
+    textAlign: 'center',
   },
 };
 

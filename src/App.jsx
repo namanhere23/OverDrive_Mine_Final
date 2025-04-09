@@ -13,7 +13,6 @@ function App() {
   return (
     <>
     <Datefns/>
-    <Spin/>
       <Movie/>
       <CF />
     </>
